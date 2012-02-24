@@ -20,7 +20,13 @@
   <li>
     <div class="g-plusone" data-size="medium" data-annotation="inline" data-width="120"></div>
   </li>
-  {% endif %}  
+  {% endif %}
+
+  {% if settings.share_prod_on_pinterest %}
+  <li>
+    <a href="http://pinterest.com/pin/create/button/?url={{shop.url}}{{product.url}}&media={{ product.images.first | product_img_url: 'compact' }}&description={{ product.description | truncatewords:20 }}" class="pin-it-button" count-layout="horizontal">Pin It</a>
+  </li>
+  {% endif %} 
 
 </ul>
 
@@ -45,5 +51,8 @@
 
 <!-- tweet btn -->
 <script defer type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+
+<!-- pinterest btn -->
+<script type="text/javascript" src="http://assets.pinterest.com/js/pinit.js"></script>
 
 {% endif %}
